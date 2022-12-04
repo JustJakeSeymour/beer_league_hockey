@@ -38,6 +38,9 @@ RSpec.describe "Division Index" do
       expect(page).to have_link("Divisions")
       visit "/divisions/#{@a.id}/teams"
       expect(page).to have_link("Divisions")
+
+      click_link "Divisions"
+      expect(current_path).to eq("/divisions")
     end
   end
 end

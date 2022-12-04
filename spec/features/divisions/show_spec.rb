@@ -20,7 +20,7 @@ RSpec.describe "Divisions Show" do
 
   describe "Divisions Show Division Attributes" do
     it "shows the attributes of selected division" do
-      visit "/parents/#{@a.id}"
+      visit "/divisions/#{@a.id}"
       
       expect(page).to have_content(@a.name)      
       expect(page).to have_content(@a.difficulty)      
@@ -29,7 +29,7 @@ RSpec.describe "Divisions Show" do
   
   describe "Division Teams Count" do
     it "shows the number of teams related to that division" do
-      visit "/parents/#{@a.id}"
+      visit "/divisions/#{@a.id}"
       
       expect(page).to have_content(@a.team_count)
     end
@@ -42,7 +42,7 @@ RSpec.describe "Divisions Show" do
       expect(page).to have_link("#{@a.name} teams")
       
       click_link "#{@a.name} teams"
-      
+
       expect(current_path).to eq("/divisions/#{@a.id}/teams")
     end
   end
