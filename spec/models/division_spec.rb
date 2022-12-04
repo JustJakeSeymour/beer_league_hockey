@@ -13,11 +13,16 @@ RSpec.describe Division do
       @no_longer_a = @a.teams.create!(name: "No Longer", won: 0, lost: 7, shootout_loss: 0, active_team: false)
     end
 
-    describe '#method' do
-      it 'purpose of method' do
-
+    describe '#teams' do
+      it 'returns all associated team objects' do
+        expect(@a.teams).to eq([@liquid_death, @smartel, @otters, @bison, @no_longer_a])
       end
-    
+    end
+
+    describe '#team_count' do
+      it 'counts the number of teams' do
+        expect(@a.team_count).to eq(5)
+      end
     end
   end
 end
