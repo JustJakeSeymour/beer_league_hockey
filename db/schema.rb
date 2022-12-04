@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_12_04_183258) do
     t.string "name"
     t.integer "won"
     t.integer "lost"
-    t.integer "shoutout_loss"
+    t.integer "shootout_loss"
     t.boolean "active_team"
     t.bigint "division_id"
     t.datetime "created_at", null: false

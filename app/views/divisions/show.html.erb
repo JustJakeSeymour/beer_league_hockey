@@ -1,0 +1,7 @@
+<h1><%= @division.name %> Detail:</h1>
+<ul>
+  <li>Difficulty level: <%= @division.difficulty %></li>
+  <li><%= @division.weekend_statement %></li>
+  <li>Number of teams: <%= @division.team_count %></li>
+</ul>
+<%= link_to "#{@division.name} teams", "/divisions/#{@division.id}/teams" %>

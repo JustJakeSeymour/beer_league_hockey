@@ -1,0 +1,10 @@
+<h1>Beer League Teams</h1>
+
+<% @teams.each do |team| %>
+  <h3><%= team.name %></h3>
+  <ul>
+    <li>Wins: <%= team.won %></li>
+    <li>Losses: <%= team.lost %></li>
+    <li>Shootout Losses: <%= team.shootout_loss %></li>
+  </ul>
+<% end %>

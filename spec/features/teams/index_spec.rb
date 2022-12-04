@@ -1,12 +1,40 @@
-# User Story 3, Child Index 
+require 'rails_helper'
 
-# As a visitor
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes
-# (data from each column that is on the child table)
+RSpec.describe "Teams Index" do
+  before:each do
+    @a = Division.create!(name: "A Division", difficulty: 1, weekends: false)
+    @liquid_death = @a.teams.create!(name: "Liquid Death", won: 5, lost: 3, shootout_loss: 0, active_team: true)
+    @smartel = @a.teams.create!(name: "Smartel", won: 5, lost: 3, shootout_loss: 0, active_team: true)
+    @otters = @a.teams.create!(name: "Otters", won: 3, lost: 4, shootout_loss: 1, active_team: true)
+    @bison = @a.teams.create!(name: "Bison", won: 2, lost: 5, shootout_loss: 0, active_team: true)
+    @no_longer_a = @a.teams.create!(name: "No Longer", won: 0, lost: 7, shootout_loss: 0, active_team: false)
+  end
 
-# User Story 8, Child Index Link
+  describe "Teams Index shows all Teams & Attributes" do
+    it "shows all teams & team attributes" do
+      visit '/teams'
 
-# As a visitor
-# When I visit any page on the site
-# Then I see a link at the top of the page that takes me to the Child Index
+      expect(page).to have_content(@liquid_death.name)
+      expect(page).to have_content(@otters.name)
+      expect(page).to have_content(@liquid_death.won)
+      expect(page).to have_content(@otters.lost)
+      expect(page).to have_content(@bison.shootout_loss)
+    end
+  end
+
+  describe "Teams Index Link" do
+    it "has a link to teams index on many pages" do
+      visit "/divisions"
+      # When I visit any page on the site
+      expect(page).to have_link("Teams")
+      # Then I see a link at the top of the page that takes me to the Child Index
+      visit "/divisions/#{@a.id}"
+      expect(page).to have_link("Teams")
+      visit "/divisions/#{@a.id}/teams"
+      expect(page).to have_link("Teams")
+
+      click_link "Teams"
+      expect(current_path).to eq("/teams")
+    end
+  end
+end

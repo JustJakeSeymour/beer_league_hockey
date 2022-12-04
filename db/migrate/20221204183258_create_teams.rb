@@ -4,7 +4,7 @@ class CreateTeams < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :won
       t.integer :lost
-      t.integer :shoutoot_loss
+      t.integer :shootout_loss
       t.boolean :active_team
 
       t.references :division, foreign_key: true
