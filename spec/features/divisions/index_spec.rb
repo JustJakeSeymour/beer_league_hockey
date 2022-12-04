@@ -21,12 +21,10 @@ RSpec.describe "Division Index" do
   describe "names sorted by most recent first" do
     it 'orders records by most recent first' do
       @d2_mw = Division.create!(name: "D2 Mon/Wed", difficulty: 2, weekends: false)
-
       visit '/divisions'
-      expect
-      # I see that records are ordered by most recently created first
-      expect
-      # And next to each of the records I see when it was created
+      
+      expect(@d2_mw.name).to appear_before(@a.name)
+      expect(page).to have_content(@d2_mw.created_at)
     end
   end
 
