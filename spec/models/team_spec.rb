@@ -11,6 +11,9 @@ RSpec.describe Team do
       @otters = @a.teams.create!(name: "Otters", won: 3, lost: 4, shootout_loss: 1, active_team: true)
       @bison = @a.teams.create!(name: "Bison", won: 2, lost: 5, shootout_loss: 0, active_team: true)
       @no_longer_a = @a.teams.create!(name: "No Longer", won: 0, lost: 7, shootout_loss: 0, active_team: false)
+      
+      @d3_su = Division.create!(name: "D3 South Upper", difficulty: 3, weekends: true)
+      @punx = @d3_su.teams.create!(name: "PUNX", won: 6, lost: 2, shootout_loss: 0, active_team: true)
     end
 
     describe '#division' do
