@@ -30,12 +30,12 @@ RSpec.describe "Division Index" do
 
   describe "link to '/divisions'" do
     it 'has a link to /divisions on multiple pages' do
-      # When I visit any page on the site
       visit "/teams"
-      # Then I see a link at the top of the page that takes me to the Parent Index
       expect(page).to have_link("Divisions")
+      
       visit "/divisions/#{@a.id}"
       expect(page).to have_link("Divisions")
+      
       visit "/divisions/#{@a.id}/teams"
       expect(page).to have_link("Divisions")
 
