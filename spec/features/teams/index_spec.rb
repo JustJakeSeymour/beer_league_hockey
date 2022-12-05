@@ -21,7 +21,7 @@ RSpec.describe "Teams Index" do
       expect(page).to have_content(@bison.shootout_loss)
     end
   end
-
+  
   describe "Teams Index Link" do
     it "has a link to teams index on many pages" do
       visit "/divisions"
@@ -35,6 +35,16 @@ RSpec.describe "Teams Index" do
 
       click_link "Teams"
       expect(current_path).to eq("/teams")
+    end
+  end
+  
+  describe "Teams Index only shows true" do
+    it "only displays teams where 'active_team' is true" do
+      visit "/teams"
+
+      expect(page).to have_content(@liquid_death.name)
+      expect(page).to have_content(@otters.name)
+      expect(page).to_not have_content(@no_longer_a.name)
     end
   end
 end

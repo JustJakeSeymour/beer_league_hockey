@@ -13,12 +13,25 @@ RSpec.describe "Division Team Index" do
   describe "view division teams index" do
     it "displays each team in division with team attributes" do
       visit "/divisions/#{@a.id}/teams"
-
+      
       expect(page).to have_content(@liquid_death.name)
       expect(page).to have_content(@otters.name)
       expect(page).to have_content(@liquid_death.won)
       expect(page).to have_content(@otters.lost)
       expect(page).to have_content(@bison.shootout_loss)
+    end
+  end
+  
+  describe "button to toggle alphabetical" do
+    it "has a button to toggle alphabetical order" do
+      visit "/divisions/#{@a.id}/teams"
+      # Then I see a link to sort children in alphabetical order
+      has_link?("Sort Alphabetical")
+      # When I click on the link
+      click_link("Sort Alphabetical")
+      # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+      expect(current_path).to eq("/divisions/#{@a.id}/teams")
+      expect(@bison.name).to appear_before(@otters.name)
     end
   end
 end
