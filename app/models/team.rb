@@ -5,4 +5,5 @@ class Team < ApplicationRecord
     self.where("active_team = 'true'")
   end
   
+
 end

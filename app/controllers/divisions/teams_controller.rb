@@ -1,4 +1,4 @@
-class DivisionTeamsController < ApplicationController
+class Divisions::TeamsController < ApplicationController
   def index
     @division = Division.find(params[:id])
     @teams = @division.teams
