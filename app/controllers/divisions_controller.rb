@@ -28,5 +28,4 @@ private
   def division_params
     params.permit(:name, :difficulty, :weekends)
   end
-  
 end

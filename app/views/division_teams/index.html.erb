@@ -1,0 +1,12 @@
+<h1><%= @division.name %> Teams:</h1>
+
+<% @teams.each do |team| %>
+  <h3><%= team.name %></h3>
+  <ul>
+    <li>Wins: <%= team.won %></li>
+    <li>Losses: <%= team.lost %></li>
+    <li>Shootout losses: <%= team.shootout_loss %></li>
+  </ul>
+<% end %>
+
+<%= link_to "Create Team", "/divisions/#{@division.id}/teams/new" %>
