@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.where(active_team: true)
+    @teams = Team.active_visible
   end
 
   def show

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/divisions/:id/edit", to: "divisions#edit"
   patch "/divisions/:id", to: "divisions#update"
   get "/divisions/:id/teams", to: "divisions/teams#index"
+  get "/divisions/:id/teams?sort=alpha", to: "divisions/teams#index"
   get "/divisions/:id/teams/new", to: "divisions/teams#new"
   post "/divisions/:id/teams", to: "divisions/teams#create"
   get "/teams/:id/edit", to: "teams#edit"
