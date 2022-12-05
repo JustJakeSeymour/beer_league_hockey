@@ -12,26 +12,46 @@ RSpec.describe "Division Update" do
 
   describe "link from '/divisions/:id to edit" do
     it "has a link from divisions show for update" do
-      # When I visit a parent show page
-      # Then I see a link to update the parent "Update Parent"
-      # When I click the link "Update Parent"
-      # Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
+      visit "/divisions/#{@a.id}"
+      
+      expect(page).to have_link "Update Division"
+
+      click_link "Update Division"
+      
+      expect(current_path).to eq("/divisions/#{@a.id}/edit")
     end
   end
 
   describe "fill out the form with updated information" do
     it "has a form to update information" do
-      # When I fill out the form with updated information
-      # And I click the button to submit the form
+      visit "/divisions/#{@a.id}/edit"
+      
+      has_field?("Name")
+      fill_in("Name", with: "Learn To Play")
+      
+      has_field?("Difficulty")
+      fill_in("Difficulty", with: 5)
+      
+      has_field?("Weekends")
+      choose(option: 'true')
 
-      # Then a `PATCH` request is sent to '/parents/:id',
+      has_button?("Submit")
     end
   end
-
+  
   describe "submit redirects to division show page with updated information" do
     it "redirects with updated information on page" do
-      # the parent's info is updated,
-      # and I am redirected to the Parent's Show page where I see the parent's updated info
+      visit "/divisions/#{@a.id}/edit"
+      fill_in("Name", with: "Learn To Play")
+      fill_in("Difficulty", with: 5)
+      choose(option: 'true')
+      click_button("Submit")
+
+      expect(current_path).to eq("/divisions/#{@a.id}")
+
+      visit "/divisions/#{@a.id}"
+
+      expect(page).to have_content("Learn To Play")
     end
   end
 end
