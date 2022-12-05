@@ -12,13 +12,11 @@ RSpec.describe "Division Team Creation" do
 
   describe "link to new division team page" do 
     it "has a link from a division team page" do
-      # When I visit a Parent Children Index page
       visit "/divisions/#{@a.id}/teams"
-      # Then I see a link to add a new adoptable child for that parent "Create Child"
+      
       has_link?("Create Team")
-      # When I click the link
       click_link("Create Team")
-      # I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
+
       expect(current_path).to eq("/divisions/#{@a.id}/teams/new")
     end
   end
@@ -26,14 +24,13 @@ RSpec.describe "Division Team Creation" do
   describe "fill out form with new team's attributes" do
     it "accepts new team attributes" do
       visit "/divisions/#{@a.id}/teams/new"
-      # When I fill in the form with the child's attributes:
+
       has_field?("Name")
       has_field?("Won")
       has_field?("Lost")
       has_field?("Shootout Loss")
       has_field?("Active Team")
       has_button?("Create Team")
-      # And I click the button "Create Child"
     end
   end
   

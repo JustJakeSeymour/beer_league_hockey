@@ -4,3 +4,5 @@
     <li>Losses: <%= @team.lost %></li>
     <li>Shootout Losses: <%= @team.shootout_loss %></li>
 </ul>
+
+<%= link_to "Update Team", "/teams/#{@team.id}/edit" %>
