@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   get "/divisions", to: "divisions#index"
   get "/teams", to: "teams#index"
+  get "/divisions/new", to: "divisions#new"
   get "/divisions/:id", to: "divisions#show"
   get "/teams/:id", to: "teams#show"
+  post "/divisions", to: "divisions#create"
+  get "/divisions/:id/edit", to: "divisions#edit"
+  patch "/divisions/:id", to: "divisions#update"
 end

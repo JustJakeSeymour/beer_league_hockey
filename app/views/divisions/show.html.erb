@@ -4,4 +4,7 @@
   <li><%= @division.weekend_statement %></li>
   <li>Number of teams: <%= @division.team_count %></li>
 </ul>
+
+<%= link_to "Update Division", "/divisions/#{@division.id}/edit" %>
+
 <%= link_to "#{@division.name} teams", "/divisions/#{@division.id}/teams" %>
