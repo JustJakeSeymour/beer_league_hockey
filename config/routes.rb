@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get "/divisions/:id", to: "divisions#show"
   get "/teams/:id", to: "teams#show"
   post "/divisions", to: "divisions#create"
+  get "/divisions/:id/edit", to: "divisions#edit"
+  patch "/divisions/:id", to: "divisions#update"
 end

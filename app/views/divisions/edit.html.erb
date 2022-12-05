@@ -1,0 +1,14 @@
+<h1>New Division</h1>
+
+<%= form_with url: "/divisions/#{@division.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :weekends %>
+    <%= form.radio_button :weekends, 'true' %>
+    <%=form.label :weekends, 'Yes' , :value=> 'true' %>
+    <%= form.radio_button :weekends, 'false' %>
+    <%=form.label :weekends, 'No' , :value=> 'false' %>
+  <%= form.label :difficulty %>
+  <%= form.number_field :difficulty, max: 5, min: 1 %>
+  <%= form.submit "Update Division" %>
+<% end %>

@@ -45,7 +45,7 @@ RSpec.describe "Division Update" do
       fill_in("Name", with: "Learn To Play")
       fill_in("Difficulty", with: 5)
       choose(option: 'true')
-      click_button("Submit")
+      click_button("Update Division")
 
       expect(current_path).to eq("/divisions/#{@a.id}")
 
