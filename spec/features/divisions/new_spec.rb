@@ -10,18 +10,29 @@ RSpec.describe "Division Creation" do
     @no_longer_a = @a.teams.create!(name: "No Longer", won: 0, lost: 7, shootout_loss: 0, active_team: false)
   end
 
-  # As a visitor
-  # When I visit the Parent Index page
-  # Then I see a link to create a new Parent record, "New Parent"
-  # When I click this link
-  # Then I am taken to '/parents/new' where I  see a form for a new parent record
-  # When I fill out the form with a new parent's attributes:
-  # And I click the button "Create Parent" to submit the form
-  # Then a `POST` request is sent to the '/parents' route,
-  # a new parent record is created,
-  # and I am redirected to the Parent Index page where I see the new Parent displayed.
+  describe "link to new division page" do
+    it "has a link to new division from division index" do
+      # When I visit the Parent Index page
+      # Then I see a link to create a new Parent record, "New Parent"
+      # When I click this link
+      # Then I am taken to '/parents/new' where I  see a form for a new parent record
 
+    end
+  end
+
+  describe "form fill out" do
+    it "has a form for new division attributes, submits to divisions" do
+      # When I fill out the form with a new parent's attributes:
+      # And I click the button "Create Parent" to submit the form
+      # Then a `POST` request is sent to the '/parents' route,
+    end
+  end
   
-  
-  
+  describe "redirects to '/divisions' with new entry" do
+    it "creates a new division and redirects to divisions" do
+      # a new parent record is created,
+      # and I am redirected to the Parent Index page where I see the new Parent displayed.
+
+    end
+  end
 end
