@@ -16,7 +16,7 @@ RSpec.describe "Teams Update" do
 
       has_link?("Update Team")
       click_link("Update Team")
-      
+
       expect(current_path).to eq("/teams/#{@otters.id}/edit")
     end
   end
@@ -30,7 +30,7 @@ RSpec.describe "Teams Update" do
       has_field?("Lost")
       has_field?("Shootout Loss")
       has_field?("Active Team")
-      has_button?("Create Team")
+      has_button?("Update Team")
     end
   end
   
@@ -44,7 +44,7 @@ RSpec.describe "Teams Update" do
       fill_in("shootout_loss", with: 0)
       choose(option: 'true')
 
-      click_button("Create Team")
+      click_button("Update Team")
     
       expect(current_path).to eq("/teams/#{@otters.id}")
 
