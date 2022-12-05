@@ -11,7 +11,7 @@ class DivisionsController < ApplicationController
   end
   
   def create
-    Division.create(division_params)
+    Division.create!(division_params)
     redirect_to "/divisions"
   end
   

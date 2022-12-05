@@ -1,11 +1,10 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.all
+    @teams = Team.active_visible
   end
 
   def show
     @team = Team.find(params[:id])
-    team_visible = Team.vis
   end
 
   def edit
