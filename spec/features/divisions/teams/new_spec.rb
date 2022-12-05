@@ -32,7 +32,7 @@ RSpec.describe "Division Team Creation" do
       has_field?("Lost")
       has_field?("Shootout Loss")
       has_field?("Active Team")
-      has_button("Create Team")
+      has_button?("Create Team")
       # And I click the button "Create Child"
     end
   end
@@ -40,15 +40,15 @@ RSpec.describe "Division Team Creation" do
   describe "post goes to division teams page, with new team" do
     it "creates a new team" do
       visit "/divisions/#{@a.id}/teams/new"
-      # Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
+
       fill_in("Name", with: "Mighty Ducks")
       fill_in("Won", with: 4)
       fill_in("Lost", with: 4)
-      fill_in("Shootout Loss", with: 0)
+      fill_in("shootout_loss", with: 0)
       choose(option: 'true')
-      # a new child object/row is created for that parent,
+
       click_button("Create Team")
-      # and I am redirected to the Parent Childs Index page where I can see the new child listed
+      
       expect(current_path).to eq("/divisions/#{@a.id}/teams")
       
       visit "/divisions/#{@a.id}/teams"

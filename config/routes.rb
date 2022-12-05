@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/divisions/:id/edit", to: "divisions#edit"
   patch "/divisions/:id", to: "divisions#update"
   get "/divisions/:id/teams", to: "division_teams#index"
+  get "/divisions/:id/teams/new", to: "division_teams#new"
+  post "/divisions/:id/teams", to: "division_teams#create"
 end
