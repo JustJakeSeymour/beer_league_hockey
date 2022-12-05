@@ -10,7 +10,7 @@ class Divisions::TeamsController < ApplicationController
 
   def create
     division = Division.find(params[:division_id])
-    new_team = division.teams.create(division_teams_params)
+    new_team = division.teams.create!(division_teams_params)
   end
 
 private
