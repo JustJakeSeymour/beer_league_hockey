@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    team_visible = Team.where(:active_team = true)
+    team_visible = Team.vis
   end
 
   def edit

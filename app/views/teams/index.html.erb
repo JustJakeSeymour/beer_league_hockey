@@ -7,6 +7,7 @@
     <li>Losses: <%= team.lost %></li>
     <li>Shootout Losses: <%= team.shootout_loss %></li>
   </ul>
+  <%= butto, method: :get n_to "Update #{team.name} Info", "/teams/#{team.id}/edit", method: :get  %>
 <% end %>
 
 <%= link_to "Divisions", "/divisions" %>

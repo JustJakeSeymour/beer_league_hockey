@@ -3,6 +3,7 @@
 <% @divisions.order({ created_at: :desc }).each do |division| %>
   <h3><%= division.name %></h3>
   <p>Created: <%= division.created_at %></p>
+  <%= button_to "Update #{division.name} Info", "/divisions/#{division.id}/edit", method: :get %>
 <% end %>
 <hr>
 <footer><%= link_to "New Division", "/divisions/new" %></footer>
