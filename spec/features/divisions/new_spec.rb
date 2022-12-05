@@ -14,7 +14,6 @@ RSpec.describe "Division Creation" do
     it "has a link to new division from division index" do
       # When I visit the Parent Index page
       visit '/divisions'
-
       # Then I see a link to create a new Parent record, "New Parent"
       expect(page).to have_link("New Division")
       # When I click this link
@@ -26,29 +25,28 @@ RSpec.describe "Division Creation" do
 
   describe "form fill out" do
     it "has a form for new division attributes, submits to divisions" do
-      visit "/division/new"
-      # When I fill out the form with a new parent's attributes:
+      visit "/divisions/new"
+
       has_field?("name")
       fill_in "name", with: "Pro"
       has_field?("weekends")
       choose(option: 'true')
       has_field?("difficulty")
       fill_in "difficulty", with: 1
-      # And I click the button "Create Parent" to submit the form
+
       has_button?("submit")
-      # Then a `POST` request is sent to the '/parents' route,
     end
   end
   
   describe "redirects to '/divisions' with new entry" do
     it "creates a new division and redirects to divisions" do
       visit "/divisions/new"
-      # a new parent record is created,
+
       fill_in('Name', with: "Pros")
       fill_in('Difficulty', with: 1)
       choose(option: 'true')
       click_button "Create Division"
-      # and I am redirected to the Parent Index page where I see the new Parent displayed.
+      
       expect(current_path).to eq("/divisions")
 
       visit "/divisions"

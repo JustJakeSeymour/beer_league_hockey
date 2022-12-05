@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "/divisions", to: "divisions#index"
   get "/teams", to: "teams#index"
+  get "/divisions/new", to: "divisions#new"
   get "/divisions/:id", to: "divisions#show"
   get "/teams/:id", to: "teams#show"
 end
