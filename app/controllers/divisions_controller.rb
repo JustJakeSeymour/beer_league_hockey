@@ -9,4 +9,15 @@ class DivisionsController < ApplicationController
 
   def new
   end
+
+  def create
+    Division.create(division_params)
+    redirect_to "/divisions"
+  end
+
+private
+  def division_params
+    params.permit(:name, :difficulty, :weekends)
+  end
+  
 end
