@@ -34,4 +34,20 @@ RSpec.describe "Division Team Index" do
       expect(@bison.name).to appear_before(@otters.name)
     end
   end
+
+  describe "Display over given threshold" do
+    it "displays teams with over 'n' of wins" do
+      # When I visit the Parent's children Index Page
+      visit "/divisions/#{@a.id}/teams"
+      # I see a form that allows me to input a number value
+      expect(page).to have_content("Only return records with more than")
+      # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+      fill_in :wins_over, with: 3
+      # Then I am brought back to the current index page with only the records that meet that threshold shown.      
+      expect(page).to have_current_path("/divisions/#{@a.id}/teams?wins_over=3")
+      expect(page).to have_content(@liquid_death.name)
+      expect(page).to have_content(@smartel.name)
+      expect(page).to_not have_content(@bison.name)
+    end
+  end
 end

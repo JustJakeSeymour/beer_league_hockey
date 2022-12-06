@@ -38,7 +38,7 @@ RSpec.describe "Divisions Show" do
   describe "Division Teams Index Link" do
     it "has a link to division/:id/teams" do
       visit "/divisions/#{@a.id}"
-      save_and_open_page
+      
       expect(page).to have_link("#{@a.name} teams")
       
       click_link "#{@a.name} teams"
