@@ -14,6 +14,7 @@ class TeamsController < ApplicationController
   def update
     team = Team.find(params[:id])
     team.update(team_params)
+    redirect_to "/teams/#{team.id}"
   end
 
   def destroy

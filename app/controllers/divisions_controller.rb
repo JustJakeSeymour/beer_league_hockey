@@ -22,6 +22,7 @@ class DivisionsController < ApplicationController
   def update
     division = Division.find(params[:id])
     division.update(division_params)
+    redirect_to "/divisions/#{division.id}"
   end
   
   def destroy
