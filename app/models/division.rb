@@ -9,7 +9,15 @@ class Division < ApplicationRecord
     if :weekends
       "Games played on weekends."
     else
-      "games Played on weeknights."
+      "Games played on weeknights."
     end
+  end
+
+  def display_wins_over(number)
+    teams.where("won > #{number}").order(won: :desc)
+  end
+
+  def sort_alphabetical
+    teams.order(:name)
   end
 end
