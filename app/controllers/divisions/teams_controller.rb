@@ -8,6 +8,11 @@ class Divisions::TeamsController < ApplicationController
     else
       
     end
+
+    if params[:wins_over]
+      @teams = Team.display_wins_over(params[:wins_over], @division.id)
+    else
+    end
   end
   
   def new
