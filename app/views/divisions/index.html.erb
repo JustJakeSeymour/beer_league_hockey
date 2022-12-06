@@ -4,7 +4,9 @@
   <h3><%= division.name %></h3>
   <p>Created: <%= division.created_at %></p>
   <%= button_to "Update #{division.name} Info", "/divisions/#{division.id}/edit", method: :get %>
+  <%= button_to "Delete Division", "/divisions/#{division.id}", method: :delete %>
 <% end %>
+
 <hr>
 <footer><%= link_to "New Division", "/divisions/new" %></footer>
 

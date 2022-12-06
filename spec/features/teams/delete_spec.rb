@@ -19,7 +19,6 @@ RSpec.describe "Team Delete" do
       # When I click the link
       click_button("Delete Team")
       # Then a 'DELETE' request is sent to '/child_table_name/:id',
-      expect(page).to have_current_path("/teams/#{@liquid_death.id}")
       # the child is deleted,
       expect(current_path).to eq("/teams")
       # and I am redirected to the child index page where I no longer see this child
@@ -33,7 +32,7 @@ RSpec.describe "Team Delete" do
       visit "/teams"
       has_button?("Delete Team")
       # When I visit the `child_table_name` index page or a parent `child_table_name` index page
-      visit "/division/#{@a.id}/teams"
+      visit "/divisions/#{@a.id}/teams"
       has_button?("Delete Team")
       # Next to every child, I see a link to delete that child
       # When I click the link
