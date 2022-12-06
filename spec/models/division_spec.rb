@@ -33,6 +33,7 @@ RSpec.describe Division do
     describe '#weekend_statement' do
       it 'returns a statement if games are played on weekends or not' do
         expect(@a.weekend_statement).to eq("Games played on weeknights.")
+        expect(@d3_su.weekend_statement).to eq("Games played on weekends.")
       end
     end
 
