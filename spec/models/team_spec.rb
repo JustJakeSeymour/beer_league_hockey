@@ -21,6 +21,23 @@ RSpec.describe Team do
         expect(@otters.division).to eq(@a)
       end
     end
+
+    describe '#active_visible' do
+      xit 'returns teams where active_team is true' do
+
+      end
+    end
     
+    describe '#sort_alphabetical' do
+      xit 'returns teams in an ascending alphabetical order' do
+        
+      end
+    end
+
+    describe "#display_wins_over" do
+      xit 'returns teams with over (n) wins' do
+
+      end
+    end
   end
 end

@@ -29,5 +29,12 @@ RSpec.describe Division do
         expect(@d3_su.team_count).to eq(1)
       end
     end
+
+    describe '#weekend_statement' do
+      xit 'returns a statement if games are played on weekends or not' do
+
+      end
+    end
+    
   end
 end
