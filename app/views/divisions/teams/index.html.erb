@@ -12,8 +12,15 @@
 <% end %>
 
 <hr>
+
 <p><%= link_to "Create Team", "/divisions/#{@division.id}/teams/new" %></p>
+
+<hr>
+
 <p><%= link_to "Sort Alphabetical", "/divisions/#{@division.id}/teams?sort=alpha" %></p>
+
+<hr>
+
 <%= form_with url: "/divisions/#{@division.id}/teams", method: :get, local: true do |form| %>
   <%= form.label :wins_over %>
   <%= form.number_field :wins_over %>
@@ -21,6 +28,7 @@
 <% end %>
 
 <hr>
+
 <p><%= link_to "Divisions", "/divisions" %></p>
 <p><%= link_to "Teams", "/teams" %></p>
 
