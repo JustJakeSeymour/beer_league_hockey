@@ -5,6 +5,10 @@ class Division < ApplicationRecord
     teams.count
   end
 
+  def self.sort_created
+    order({ created_at: :desc })
+  end
+
   def weekend_statement
     if self.weekends
       "Games played on weekends."

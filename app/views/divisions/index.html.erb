@@ -1,6 +1,6 @@
 <h1>Beer League Divisions</h1>
 
-<% @divisions.order({ created_at: :desc }).each do |division| %>
+<% @divisions.sort_created.each do |division| %>
   <h3><%= link_to division.name, "/divisions/#{division.id}" %></h3>
   <p>Created: <%= division.created_at %></p>
   <%= button_to "Update #{division.name} Info", "/divisions/#{division.id}/edit", method: :get %>
