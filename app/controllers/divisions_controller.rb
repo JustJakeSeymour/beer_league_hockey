@@ -24,6 +24,11 @@ class DivisionsController < ApplicationController
     division.update(division_params)
   end
   
+  def destroy
+    Division.destroy(params[:id])
+    redirect_to "/divisions"
+  end
+  
 private
   def division_params
     params.permit(:name, :difficulty, :weekends)

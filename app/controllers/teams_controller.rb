@@ -16,6 +16,11 @@ class TeamsController < ApplicationController
     team.update(team_params)
   end
 
+  def destroy
+    Team.destroy(params[:id])
+    redirect_to "/teams"
+  end
+
 private
 
   def team_params

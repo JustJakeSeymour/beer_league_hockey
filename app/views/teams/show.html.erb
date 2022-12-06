@@ -7,4 +7,7 @@
 
 <%= link_to "Update Team", "/teams/#{@team.id}/edit" %>
 
+<%= button_to "Delete Team", "/teams/#{@team.id}", method: :delete%>
+
+
 <%= link_to "Divisions", "/divisions" %><%= link_to "Teams", "/teams" %>

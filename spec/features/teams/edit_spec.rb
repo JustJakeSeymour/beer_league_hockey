@@ -54,4 +54,19 @@ RSpec.describe "Teams Update" do
       expect(page).to_not have_content("Otters")
     end
   end
+
+  describe "team update from teams page" do
+    it "has link to update team from teams page" do
+      visit "/teams"
+      has_button?("Update #{@otters.name} Info")
+      click_button("Update #{@otters.name} Info")
+      expect(current_path).to eq("/teams/#{@otters.id}/edit")
+      
+      visit "/divisions/#{@a.id}/teams"
+      has_button?("Update #{@otters.name} Info")
+      click_button("Update #{@otters.name} Info")
+      expect(current_path).to eq("/teams/#{@otters.id}/edit")
+    end
+  end
+  
 end

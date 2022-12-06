@@ -54,4 +54,13 @@ RSpec.describe "Division Update" do
       expect(page).to have_content("Learn To Play")
     end
   end
+
+  describe "division update from divisions page" do
+    it "has link to update division from divisions page" do
+      visit "/divisions"
+      has_button?("Update #{@a.name} Info")
+      click_button("Update #{@a.name} Info")
+      expect(current_path).to eq("/divisions/#{@a.id}/edit")
+    end
+  end
 end
