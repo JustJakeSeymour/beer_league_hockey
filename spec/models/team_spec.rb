@@ -21,6 +21,11 @@ RSpec.describe Team do
         expect(@otters.division).to eq(@a)
       end
     end
-    
+
+    describe '#active_visible' do
+      it 'returns teams where active_team is true' do
+        expect(Team.active_visible).to eq([@liquid_death, @smartel, @otters, @bison, @punx])
+      end
+    end
   end
 end

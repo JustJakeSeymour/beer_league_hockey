@@ -1,4 +1,4 @@
-<h1>New Division</h1>
+<h1>Update Division</h1>
 
 <%= form_with url: "/divisions/#{@division.id}", method: :patch, local: true do |form| %>
   <%= form.label :name %>
@@ -13,4 +13,6 @@
   <%= form.submit "Update Division" %>
 <% end %>
 
-<%= link_to "Divisions", "/divisions" %><%= link_to "Teams", "/teams" %>
+<hr>
+<p><%= link_to "Division", "/divisions" %></p>
+<p><%= link_to "Teams", "/teams" %></p>

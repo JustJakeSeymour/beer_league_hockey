@@ -4,9 +4,14 @@ class Divisions::TeamsController < ApplicationController
     @teams = @division.teams
     
     if params[:sort]
-      @teams = Team.sort_alphabetical(@division.id)
+      @teams = @division.sort_alphabetical
     else
       
+    end
+
+    if params[:wins_over]
+      @teams = @division.display_wins_over(params[:wins_over])
+    else
     end
   end
   

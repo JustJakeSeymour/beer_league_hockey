@@ -5,9 +5,11 @@
     <li>Shootout Losses: <%= @team.shootout_loss %></li>
 </ul>
 
+<hr>
 <%= link_to "Update Team", "/teams/#{@team.id}/edit" %>
-
 <%= button_to "Delete Team", "/teams/#{@team.id}", method: :delete%>
 
 
-<%= link_to "Divisions", "/divisions" %><%= link_to "Teams", "/teams" %>
+<hr>
+<p><%= link_to "Division", "/divisions" %></p>
+<p><%= link_to "Teams", "/teams" %></p>
