@@ -23,17 +23,9 @@ RSpec.describe Team do
     end
 
     describe '#active_visible' do
-      xit 'returns teams where active_team is true' do
-
+      it 'returns teams where active_team is true' do
+        expect(Team.active_visible).to eq([@liquid_death, @smartel, @otters, @bison, @punx])
       end
     end
-    
-    describe '#sort_alphabetical' do
-      xit 'returns teams in an ascending alphabetical order' do
-        
-      end
-    end
-
-    
   end
 end

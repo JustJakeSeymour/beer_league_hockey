@@ -31,14 +31,20 @@ RSpec.describe Division do
     end
 
     describe '#weekend_statement' do
-      xit 'returns a statement if games are played on weekends or not' do
-
+      it 'returns a statement if games are played on weekends or not' do
+        expect(@a.weekend_statement).to eq("Games played on weeknights.")
       end
     end
-    
-    describe "#display_wins_over" do
-      xit 'returns teams with over (n) wins' do
 
+    describe '#sort_alphabetical' do
+      it 'returns teams in an ascending alphabetical order' do
+        expect(@a.sort_alphabetical).to eq([@bison, @liquid_death, @no_longer_a, @otters, @smartel])
+      end
+    end
+
+    describe "#display_wins_over" do
+      it 'returns teams with over (n) wins' do
+        expect(@a.display_wins_over(3)).to eq([@liquid_death, @smartel])
       end
     end
   end

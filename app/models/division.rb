@@ -6,7 +6,7 @@ class Division < ApplicationRecord
   end
 
   def weekend_statement
-    if :weekends
+    if :weekends == true
       "Games played on weekends."
     else
       "Games played on weeknights."
