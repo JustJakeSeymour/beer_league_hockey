@@ -1,17 +1,13 @@
 class Divisions::TeamsController < ApplicationController
   def index
     @division = Division.find(params[:id])
-    @teams = @division.teams
     
     if params[:sort]
       @teams = @division.sort_alphabetical
-    else
-      
-    end
-
-    if params[:wins_over]
+    elsif params[:wins_over]
       @teams = @division.display_wins_over(params[:wins_over])
     else
+      @teams = @division.teams
     end
   end
   
