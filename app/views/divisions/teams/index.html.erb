@@ -17,3 +17,9 @@
 <%= link_to "Divisions", "/divisions" %> <%= link_to "Teams", "/teams" %>
 
 <%= link_to "Sort Alphabetical", "/divisions/#{@division.id}/teams?sort=alpha" %>
+
+<%= form_with url: "/divisions/#{@division.id}/teams", method: :get, local: true do |form| %>
+  <%= form.label :wins_over %>
+  <%= form.number_field :wins_over %>
+  <%= form.submit "Only return records with more than (number) wins" %>
+<% end %>
