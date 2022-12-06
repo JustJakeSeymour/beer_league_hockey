@@ -9,4 +9,6 @@
 <%= button_to "Delete Division", "/divisions/#{@division.id}", method: :delete%>
 <%= link_to "#{@division.name} teams", "/divisions/#{@division.id}/teams" %>
 
-<%= link_to "Divisions", "/divisions" %><%= link_to "Teams", "/teams" %>
+<hr>
+<p><%= link_to "Divisions", "/divisions" %></p>
+<p><%= link_to "Teams", "/teams" %></p>
